@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0.0 0.0 464 296">
+
+  <style>
+      svg { fill: none; stroke: none; }
+      ellipse { stroke: #000 }
+      path.arrow { stroke: #000; marker-end: url(#arrowhead) }
+      text { fill: #000; font-family: Helvetica, sans-serif; font-style: italic; }
+      text.middle { text-anchor: middle }
+      text.italic { font-style: italic }
+      .rei { fill: #fff }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" orient="auto" markerWidth="8" markerHeight="8"
+            refX="0" refY="3">
+      <path d="M0,0 V6 L8,3 Z" fill="#000" />
+    </marker>
+  </defs>
+
+  <g transform="translate(0, 58)">
+    <g transform="translate(100, 0)">
+      <ellipse rx="80" ry="36"/>
+      <text class="middle" y="6">Subject</text>
+    </g>
+    <g transform="translate(180, 2)">
+      <path d="M0,0 95,0" class="arrow"/>
+      <text x="20" y="-8">Predicate</text>
+    </g>
+    <g transform="translate(363, 0)">
+      <ellipse rx="80" ry="36"/>
+      <text class="middle" y="6">Object</text>
+    </g>
+  </g>
+
+</svg>

@@ -16,6 +16,16 @@
       .shower {
         --slide-ratio: calc(16 / 9);
       }
+      table.query-results thead tr {
+          border: solid 1px gray;
+      }
+      table.query-results thead td {
+          font-weight: bold;
+          background-color: white;
+      }
+      table.query-results tbody tr {
+          border: solid 1px gray;
+      }
     </style>
   </head>
 
@@ -40,41 +50,568 @@
       <p class="affiliation"><a href="http://idlab.technology/">Ghent University – imec – IDLab, Belgium</a></p>
     </section>
 
-    <section id="start" class="slide" style="background-image: url('img/TODO.jpg')" inlist="" rel="schema:hasPart" resource="#start">
-        <h2 property="schema:name" class="big" style="margin-top: 20px; color: white; text-shadow: 2px 2px black">INTRO</h2>
+    <section id="start" class="slide" style="background-image: url('img/network.jpg'); background-size: cover; box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.6)">
+        <h2 class="big" style="margin-top: 20px; color: white; text-shadow: 2px 2px black">Storing data as Knowledge Graphs</h2>
         <ul style="color: white; text-shadow: 2px 2px black; font-size: 1.3em">
-            <li>TODO</li>
+            <li class="next">Graph-based data model</li>
+            <li class="next"><p class="indent" style="font-style:italic">When data does not fit into a fixed relation model</p></li>
+            <li class="next">Based on Semantic Web and Linked Data technologies</li>
+            <li class="next"><p class="indent" style="font-style:italic">Interlinking data across multiple data sources</p></li>
         </ul>
     </section>
 	
     <section id="index" class="slide index" inlist="" rel="schema:hasPart" resource="#index">
       <ul>
-        <li><a href="#index-a">TODO</a></li>
-		<li><a href="#index-b">TODO</a></li>
+        <li><a href="#index-web">World Wide Web</a></li>
+        <li><a href="#index-semweb">Semantics Web</a></li>
+		<li><a href="#index-rdf">RDF</a></li>
+        <li><a href="#index-sparql">SPARQL</a></li>
+        <li><a href="#index-examples">Examples</a></li>
       </ul>
     </section>
     
-    <section id="index-a" class="slide index" inlist="" rel="schema:hasPart" resource="#index-a">
+    <section id="index-web" class="slide index" inlist="" rel="schema:hasPart" resource="#index-web">
       <ul>
-        <li class="current"><a href="#index-a">TODO</a></li>
-		<li><a href="#index-b">TODO</a></li>
+        <li class="current"><a href="#index-web">World Wide Web</a></li>
+        <li><a href="#index-semweb">Semantics Web</a></li>
+		<li><a href="#index-rdf">RDF</a></li>
+        <li><a href="#index-sparql">SPARQL</a></li>
+        <li><a href="#index-examples">Examples</a></li>
+      </ul>
+    </section>
+    
+    <section id="web-timbl-cern" class="slide" inlist="" rel="schema:hasPart" resource="#web-timbl-cern" style="background-image: url('img/timbl_cern.jpg'); background-size: cover">
+        <h2 class="big" style="margin-top: 20px; color: white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;" property="schema:name">1989, CERN Switzerland</h2>
+        <h3 class="indent" style="color: white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black; width: 600px; font-style: italic">Tim Berners-Lee<br />inventor of the World Wide Web</h3>
+    </section>
+    
+    <section id="web-timbl-cern-proposal" class="slide" inlist="" rel="schema:hasPart" resource="#web-timbl-cern-proposal" style="background-image: url('img/webproposal.gif'); background-size: 800px; background-repeat: no-repeat; background-position: center top; background-color: white">
+
+    </section>
+	
+    <section id="web-timbl-cern-proposal-contents" class="slide" inlist="" rel="schema:hasPart" resource="#web-timbl-cern-proposal-contents">
+      <h2 property="schema:name">The Web's foundational ideas</h2>
+      <ul>
+          <li>
+          	  <h3>Data is linked to each other</h3>
+			  <span class="indent">Across heterogeneous systems (decentralized)</span>
+          </li>
+          <li>
+          	  <h3>Browser programs</h3>
+			  <span class="indent">Visualises data and helps users navigating the Web</span>
+          </li>
+          <li>
+          	  <h3>Everyone can read data</h3>
+			  <span class="indent">Using Web browsers</span>
+          </li>
+          <li>
+          	  <h3>Open standards</h3>
+			  <span class="indent">Anyone can implement tools (browsers, ...) on top of it</span>
+          </li>
+      </ul>
+    </section>
+    
+    <section id="web-adoption" class="slide" inlist="" rel="schema:hasPart" resource="#web-adoption" style="background-image: url('img/globe.jpg'); background-size: cover">
+        <h2 class="big" style="margin-top: 20px; color: white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;" property="schema:name">1990-... World-wide adoption</h2>
+        <h3 class="indent" style="color: white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black; width: 600px; font-style: italic">Not just for researchers anymore</h3>
+    </section>
+    
+    <section id="web-intro" class="slide" inlist="" rel="schema:hasPart" resource="#web-intro">
+        <h2 class="big" property="schema:name">The Web is a <strong>global information space</strong></h2>
+        <h3 class="indent" style="font-style: italic">a.k.a. The World Wide Web (WWW)</h3>
+        <div class="next">
+            <h3>Mostly used by <em>humans</em> through <em>Web browsers</em></h3>
+            <div class="indent" style="text-align: center">
+                <img src="img/browsers/chrome.svg" alt="Chrome" width="100px" style="margin: 20px" />
+                <img src="img/browsers/edge.svg" alt="Edge" width="100px" style="margin: 20px" />
+                <img src="img/browsers/firefox.svg" alt="Firefox" width="100px" style="margin: 20px" />
+                <img src="img/browsers/brave.svg" alt="Brave" width="80px" style="margin: 20px" />
+                <img src="img/browsers/safari.png" alt="Safari" width="100px" style="margin: 20px" />
+            </div>
+        </div>
+    </section>
+    <!-- The Web is a ...; Humans can read the information using Web Browsers -->
+    
+    <section id="web-example-1" class="slide" inlist="" rel="schema:hasPart" resource="#web-example-1" style="text-align: center">
+        <img src="img/web-example/news.png" alt="News" width="900px" />
+    </section>
+    <section id="web-example-2" class="slide" inlist="" rel="schema:hasPart" resource="#web-example-2" style="text-align: center">
+        <img src="img/web-example/social.png" alt="Social" width="900px" />
+    </section>
+    <section id="web-example-3" class="slide" inlist="" rel="schema:hasPart" resource="#web-example-3" style="text-align: center">
+        <img src="img/web-example/media.png" alt="Media" width="900px" />
+    </section>
+    <!-- Browsing examples... -->
+    
+    <section id="web-human" class="slide" inlist="" rel="schema:hasPart" resource="#web-human">
+        <h2 property="schema:name">Web is focused on humans</h2>
+        <ul>
+            <li>
+                <h3>Web pages show information</h3>
+                <p class="indent">Visualized using Web browsers</p>
+            </li>
+            <li>
+                <h3>Clicking on links</h3>
+                <p class="indent">To discover new information</p>
+            </li>
+            <li>
+                <h3>Search information</h3>
+                <p class="indent">Using search engines such as Google, Bing, ...</p>
+            </li>
+        </ul>
+    </section>
+    <!-- Currently, Web is very human-oriented. -->
+    
+    <section id="web-human-effort" class="slide" inlist="" rel="schema:hasPart" resource="#web-human-effort">
+        <h2 property="schema:name">Achieving tasks requires manual effort</h2>
+        <ul>
+            <li class="next">
+                <h3>Will it rain next week?</h3>
+                <p class="indent">
+                    <ol>
+                        <li>Find a weather prediction website</li>
+                        <li>Select your location</li>
+                        <li>Navigate to next week</li>
+                    </ol>
+                </p>
+            </li>
+            <li class="next">
+                <h3>Book a trip for a group of people</h3>
+                <p class="indent">
+                    <ul>
+                        <li>Comparing agendas</li>
+                        <li>Comparing interests: nature, musea, ...</li>
+                        <li>Regional temperatures</li>
+                        <li>Geopolitical status</li>
+                        <li>...</li>
+                    </ul>
+                </p>
+            </li>
+        </ul>
+    </section>
+    <!-- Tasks require manual effort -->
+    
+    <section id="web-automatic" class="slide" inlist="" rel="schema:hasPart" resource="#web-automatic" style="text-align: center">
+        <h2 property="schema:name" style="font-size: 2.3em; margin-top: 180px">What if <em>intelligent agents</em><br />could do these tasks for us?</h2>
+    </section>
+    <!-- What if computers could automatically...? -->
+    
+    <section id="index-semweb" class="slide index" inlist="" rel="schema:hasPart" resource="#index-semweb">
+      <ul>
+        <li><a href="#index-web">World Wide Web</a></li>
+        <li class="current"><a href="#index-semweb">Semantics Web</a></li>
+		<li><a href="#index-rdf">RDF</a></li>
+        <li><a href="#index-sparql">SPARQL</a></li>
+        <li><a href="#index-examples">Examples</a></li>
+      </ul>
+    </section>
+    
+    <section id="web-automatic-dream-timbl" class="slide" inlist="" rel="schema:hasPart" resource="#web-automatic-automatic-timbl" style="background-image: url('img/timbl.jpg'); background-size: cover">
+        <h2 class="big" style="margin-top: 20px; color: white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;" property="schema:name">I Have a Dream</h2>
+        <h3 class="indent" style="color: white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black; width: 600px">A Web where intelligent<br />agents are able to achieve<br />our day-to-day tasks.<br /><em>2001</em></h3>
+    </section>
+    <!-- But him. He envisioned... -->
+    
+    <section id="scientific-american" class="slide" inlist="" rel="schema:hasPart" resource="#scientific-american" style="background-image: url('img/semanticwebarticle.jpg'); background-size: cover">
+        <h3 class="indent" style="margin-top: 350px; background: rgba(255, 255, 255, 0.6)">The <u>Semantic Web</u> will bring structure to the meaningful content of Web pages, creating an environment where software agents roaming from page to page can readily carry out sophisticated tasks for users.</h3>
+    </section>
+    
+    <section id="web-dream-agents" class="slide" inlist="" rel="schema:hasPart" resource="#web-dream-agents">
+        <h2 class="big" property="schema:name">The dream: Getting there step by step</h2>
+        <h3>2015: Agents are being introduced that can perform <em>simple</em> tasks</h3>
+        <div>
+            <div class="indent" style="text-align: center">
+                <img src="img/agents/google_assistant.png" alt="Google Assistant" width="100px" style="margin: 20px" />
+                <img src="img/agents/alexa.png" alt="Alexa" width="100px" style="margin: 20px" />
+                <img src="img/agents/siri.png" alt="Siri" width="100px" style="margin: 20px" />
+                <br />
+                <em>Google Assistant, Alexa, Siri, ...</em>
+            </div>
+        </div>
+    </section>
+    
+    <section id="agents-use-knowledgegraphs" class="slide" inlist="" rel="schema:hasPart" resource="#agents-use-knowledgegraphs">
+        <h2 class="big" property="schema:name">How do these agents work?</h2>
+        <h3 class="next">&rarr; Execute Queries over Knowledge Graphs</h3>
+        <p class="next indent">
+            Query = Structured Question
+            <br />
+            Knowledge Graph = Structured information
+        </p>
+        <h3 class="next indent">&rarr; Structured questions over structured information</h3>
+    </section>
+    <!-- They retrieve info from structured information that is understandable machine-readable = query KGs -->
+    
+    <section id="knowledgegraphs" class="slide" inlist="" rel="schema:hasPart" resource="#knowledgegraphs">
+        <h2 class="big" property="schema:name">A Knowledge Graph is<br />a collection of <em>structured information</em></h2>
+        <div class="next" style="text-align: center">
+            <img src="img/web-example/news.png" alt="News" width="700px" />
+        </div>
+        <div class="next" style="text-align: center; position: relative; top: -400px">
+            <img src="img/graph.png" alt="Graph" width="700px" style="opacity: 0.75" />
+        </div>
+    </section>
+    <!-- KGs are very important for intelligent agents. In summary: knowledge graphs collection of structured information. I won't go into detail on how this is structured. The same info as for humans, but so that machines can understand it. -->
+
+    <section id="semwebtech" class="slide" inlist="" rel="schema:hasPart" resource="#semwebtech">
+      <h2 class="big" property="schema:name">Semantic Web technologies</h2>
+      <ul>
+          <li>
+          	  <h3>RDF</h3>
+			  <span class="indent">Standard for representing and exchanging graph data</span><br \>
+              <span class="indent">Knowledge Graphs are collections of such graph data</span>
+          </li>
+          <li>
+          	  <h3>SPARQL</h3>
+			  <span class="indent">Standard for querying over RDF data</span>
+          </li>
+      </ul>
+    </section>
+    
+    <section id="difference-llms" class="slide" inlist="" rel="schema:hasPart" resource="#difference-llms">
+        <h2 class="big" property="schema:name">Generative AI models</h2>
+        <h3>2022: LLMs offer human-like conversations based on crawled Web data</h3>
+        <p>Differences to Knowledge Graphs:</p>
+        <ul>
+            <li>Adaptive understanding of <em>unstructured</em> data</li>
+            <li>Inconsistent answers and hallucinations</li>
+            <li>Black box</li>
+        </ul>
+        <div>
+            <div class="indent" style="text-align: center; margin-top: -20px">
+                <img src="img/generative/chatgpt.svg" alt="ChatGPT" width="200px" style="margin: 40px" />
+                <img src="img/generative/copilot.svg" alt="Copilot" width="200px" style="margin: -30px" />
+                <img src="img/generative/deepseek.svg" alt="DeepSeek" width="200px" style="margin: 45px" />
+            </div>
+        </div>
+    </section>
+    
+    <section id="index-rdf" class="slide index" inlist="" rel="schema:hasPart" resource="#index-rdf">
+      <ul>
+        <li><a href="#index-web">World Wide Web</a></li>
+        <li><a href="#index-semweb">Semantics Web</a></li>
+		<li class="current"><a href="#index-rdf">RDF</a></li>
+        <li><a href="#index-sparql">SPARQL</a></li>
+        <li><a href="#index-examples">Examples</a></li>
+      </ul>
+    </section>
+    
+    <section id="rdf-specs" class="slide" inlist="" rel="schema:hasPart" resource="#rdf-specs">
+      <h2 property="schema:name">RDF enables data exchange on the Web</h2>
+      <ul>
+          <li>
+          	  <h3>RDF</h3>
+			  <span class="indent">Resource Description framework</span>
+          </li>
+          <li>
+          	  <h3><a href="https://www.w3.org/TR/rdf10-concepts/">RDF 1.0</a></h3>
+			  <span class="indent">Recommended by W3C since 1999</span>
+          </li>
+          <li>
+          	  <h3><a href="https://www.w3.org/TR/rdf11-concepts/">RDF 1.1</a></h3>
+			  <span class="indent">Recommended by W3C since 2014</span>
+          </li>
+          <li>
+          	  <h3><a href="https://www.w3.org/TR/rdf12-concepts/">RDF 1.2</a></h3>
+			  <span class="indent">Upcoming in 2025</span>
+          </li>
+      </ul>
+    </section>
+    
+    <section id="rdf-triple" class="slide" inlist="" rel="schema:hasPart" resource="#rdf-triple">
+      <h2 property="schema:name">Facts are represented as RDF triples</h2>
+      <center>
+          <img src="img/triple.svg" alt="RDF triple" width="900px" style="margin-top: 0px" /><br \>
+          <img src="img/triple-spo.svg" alt="RDF triple" width="900px"  style="margin-top: -350px" class="next" />
+      </center>
+    </section>
+    
+    <section id="rdf-triples" class="slide" inlist="" rel="schema:hasPart" resource="#rdf-triples">
+      <h2 property="schema:name">Multiple RDF triples form RDF datasets</h2>
+      <pre style="margin-top: 100px; margin-left: 200px; font-size: 1.5em">
+:Alice :knows :Bob .
+:Alice :knows :Carol .
+:Alice :name "Alice" .
+:Bob :name "Bob" .
+:Bob :knows :Carol .</pre>
+    </section>
+	
+    <section id="rdf-triples-figure" class="slide" inlist="" rel="schema:hasPart" resource="#rdf-triples-figure">
+      <h2 property="schema:name">Multiple RDF triples form RDF datasets</h2>
+	  <center><img src="img/graph-example.svg" /></center>
+    </section>
+    
+    <section id="rdf-iris" class="slide" inlist="" rel="schema:hasPart" resource="#rdf-iris">
+      <h2 property="schema:name">RDF Resources are identified by IRIs</h2>
+      <center><p style="font-size: 1.5em">https://example.org/Alice</p></center>
+      <ul>
+          <li>
+          	  <h3>IRI</h3>
+			  <span class="indent">Internationalized Resource Identifier</span>
+          </li>
+          <li>
+          	  <h3>Global identifiers</h3>
+			  <span class="indent">Can be used by different data sources &rarr; interlinking!</span>
+          </li>
+          <li>
+          	  <h3>IRIs can be URLs</h3>
+			  <span class="indent">A URL is an IRI that can be <em>dereferenced</em> (e.g. looked up in Web browsers).</span><br \>
+              <span class="indent">Allows additional information to be looked up for a resource.</span>
+          </li>
+      </ul>
+    </section>
+    
+    <section id="rdf-syntax" class="slide" inlist="" rel="schema:hasPart" resource="#rdf-syntax">
+      <h2 property="schema:name">Multiple syntaxes exist for RDF</h2>
+      <h3>Turtle</h3>
+      <pre style="margin-left: 100px; font-size: 0.75em">
+PREFIX dbr: &lt;http://dbpedia.org/resource/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+
+dbr:Alice foaf:knows dbr:Bob .
+dbr:Alice foaf:name "Alice" .</pre>
+      <h3>JSON-LD</h3>
+      <pre style="margin-left: 100px; font-size: 0.75em">
+{
+    "@context": {
+        "dbr": "http://dbpedia.org/resource/",
+        "foaf": "http://xmlns.com/foaf/0.1/"
+    },
+    "@id": "dbr:Alice",
+    "foaf:knows": "dbr:Bob",
+    "foaf:name": "Alice"
+}</pre>
+    </section>
+    
+    <section id="index-sparql" class="slide index" inlist="" rel="schema:hasPart" resource="#index-sparql">
+      <ul>
+        <li><a href="#index-web">World Wide Web</a></li>
+        <li><a href="#index-semweb">Semantics Web</a></li>
+		<li><a href="#index-rdf">RDF</a></li>
+        <li class="current"><a href="#index-sparql">SPARQL</a></li>
+        <li><a href="#index-examples">Examples</a></li>
+      </ul>
+    </section>
+    
+    <section id="start" class="slide" inlist="" rel="schema:hasPart" resource="#start">
+        <h2 property="schema:name">SPARQL querying over RDF datasets</h2>
+        <ul>
+            <li><strong>SPARQL</strong>: language to read and update RDF datasets via <em>declarative queries</em>.</li>
+            <li>
+                Different query forms:<br /><br />
+                <ul>
+                    <li><code>SELECT</code>: selecting values in tabular form<span class="next"> <strong>&rarr; focus of this presentation</strong></span></li>
+                    <li><code>CONSTRUCT</code>: construct new triples</li>
+                    <li><code>ASK</code>: check if data exists</li>
+                    <li><code>DESCRIBE</code>: describe a given resource</li>
+                    <li><code>INSERT</code>: insert new triples</li>
+                    <li><code>DELETE</code>: delete existing triples</li>
+                </ul>
+            </li>
+        </ul>
+        <p>Specification: <a href="https://www.w3.org/TR/sparql-query/">https://www.w3.org/TR/sparql-query/</a></p>
+    </section>
+    
+    <section id="example" class="slide" inlist="" rel="schema:hasPart" resource="#example" style="font-size: 0.9em">
+        <h2 property="schema:name">Find all artists born in York</h2>
+        <ul>
+            <li><pre>SELECT ?name ?deathDate WHERE {
+  ?person a dbpedia-owl:Artist;
+          rdfs:label ?name;
+          dbpedia-owl:birthPlace [ rdfs:label "York"@en ].
+  FILTER LANGMATCHES(LANG(?name),  "EN")
+  OPTIONAL { ?person dbpprop:dateOfDeath ?deathDate. }
+}
+</pre></li>
+        </ul>
+        <table class="next query-results">
+            <thead>
+                <tr><td>name</td><td>deathDate</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>Albert Joseph Moore</td><td></td></tr>
+                <tr><td>Charles Francis Hansom</td><td>1888</td></tr>
+                <tr><td>David Reed (comedian)</td><td></td></tr>
+                <tr><td>Dustin Gee</td><td></td></tr>
+                <tr><td>E Ridsdale Tate</td><td>1922</td></tr>
+            </tbody>
+        </table>
+    </section>
+    
+    <section id="how1" class="slide" inlist="" rel="schema:hasPart" resource="#how1">
+        <h2 property="schema:name" class="big">How do query engines process a query?</h2>
+        <p style="text-align: center; font-size: 1.3em" class="next">
+            RDF dataset + SPARQL query <br/>
+            &darr;<br />
+            <strong>...</strong><br />
+            &darr;<br/>
+            query results
+        </p>
+    </section>
+    
+    <section id="how2" class="slide" inlist="" rel="schema:hasPart" resource="#how2">
+        <h2 property="schema:name" class="big">How do query engines process a query?</h2>
+        <p style="text-align: center; font-size: 1.3em">
+            RDF dataset + SPARQL query <br/>
+            &darr;<br />
+            <strong>SPARQL query processing</strong><br />
+            &darr;<br/>
+            query results
+        </p>
+    </section>
+    
+    <section id="basics-restrict" class="slide" inlist="" rel="schema:hasPart" resource="#basics-restrict">
+      <h2 property="schema:name">Basic Graph Patterns enable graph pattern matching</h2>
+      <ul>
+          <li>
+          	  <h3>Basic Graph Pattern (BGP)</h3>
+			  <span class="indent">A collection of <em>triple patterns</em>.</span>
+          </li>
+          <li>
+<pre style="font-size: 0.8em">    ?person a dbpedia-owl:Artist.
+    ?person rdfs:label ?name.
+    ?person dbpedia-owl:birthPlace ?birthPlace.
+</pre></li>
+          <li>
+          	  <h3>Triple Pattern</h3>
+			  <span class="indent">A triple in which any component may be a variable.</span><br />
+			  <span class="indent">Variables start with <code>?</code>, followed by a <em>label</em>. (e.g. <code>?name</code>)</span>
+          </li>
+          <li>
+          	  <h3>More complex operators are possible</h3>
+    		  <span class="indent"><code>OPTIONAL</code>, <code>UNION</code>, <code>FILTER</code>, ...</span>
+          </li>
+      </ul>
+    </section>
+    
+    <section id="basics-solutions" class="slide" inlist="" rel="schema:hasPart" resource="#basics-solutions">
+      <h2 property="schema:name">Query results representation</h2>
+      <ul>
+          <li>
+          	  <h3>Solution Mapping</h3>
+			  <span class="indent">Mapping from a set of variable labels to a set of RDF terms.</span>
+          </li>
+          <li>
+          	  <h3>Solution Sequence</h3>
+			  <span class="indent">A list of solution mappings.</span>
+          </li>
+      </ul>
+      <em>1 solution sequence with 3 solution mappings:</em>
+      <table class="query-results">
+          <thead>
+              <tr><td>name</td><td>birthplace</td></tr>
+          </thead>
+          <tbody>
+              <tr><td>Bob Brockmann</td><td>http://dbpedia.org/resource/Louisiana</td></tr>
+              <tr><td>Bennie Nawahi</td><td>http://dbpedia.org/resource/Honolulu</td></tr>
+              <tr><td>Weird Al Yankovic</td><td>http://dbpedia.org/resource/Downey,_California</td></tr>
+          </tbody>
+      </table>
+    </section>
+    
+    <section id="basics-steps" class="slide" inlist="" rel="schema:hasPart" resource="#basics-steps">
+      <h2 property="schema:name">Steps in SPARQL query processing</h2>
+      <ul>
+          <li>
+          	  <h3>1. Parsing</h3>
+			  <span class="indent">Transform a SPARQL query string into an algebra expression</span>
+          </li>
+          <li>
+          	  <h3>2. Optimization</h3>
+			  <span class="indent">Transform algebra expression into a query plan</span>
+          </li>
+          <li>
+          	  <h3>3. Evaluation</h3>
+			  <span class="indent">Executes query plan to obtain query results</span>
+          </li>
       </ul>
     </section>
 	
-    <section id="some-slide" class="slide" inlist="" rel="schema:hasPart" resource="#some-slide">
-      <h2 property="schema:name">TODO: A regular slide</h2>
+    <section id="sparql-eps" class="slide" inlist="" rel="schema:hasPart" resource="#sparql-eps">
+      <h2 property="schema:name">Publishing Knowledge Graphs as SPARQL Endpoints</h2>
+      <p><strong>SPARQL endpoint</strong>: API that accepts SPARQL queries, and replies with results.</p>
       <ul>
           <li>
-          	  <h3>A</h3>
-			  <span class="indent">TODO: Description</span>
+          	  <h3>Most popular way to publish Knowledge Graphs</h3>
+			  <span class="indent">Alternatives are data dumps and Linked Data Documents</span>
           </li>
-          <li>B</li>
-          <li>C</li>
+          <li>
+          	  <h3>Very powerful</h3>
+			  <span class="indent">Very complex queries can be formulated with SPARQL</span>
+          </li>
+          <li>
+          	  <h3>Power comes with a cost</h3>
+			  <span class="indent">SPARQL endpoints can require very powerful servers</span>
+          </li>
+      </ul>
+    </section>
+    
+    <section id="index-examples" class="slide index" inlist="" rel="schema:hasPart" resource="#index-examples">
+      <ul>
+        <li><a href="#index-web">World Wide Web</a></li>
+        <li><a href="#index-semweb">Semantics Web</a></li>
+		<li><a href="#index-rdf">RDF</a></li>
+        <li><a href="#index-sparql">SPARQL</a></li>
+        <li class="current"><a href="#index-examples">Examples</a></li>
+      </ul>
+    </section>
+    
+    <section id="examples-bio" class="slide" inlist="" rel="schema:hasPart" resource="#examples-bio">
+      <h2 property="schema:name">Popular biological SPARQL endpoints</h2>
+      <ul>
+          <li>
+          	  <h3>Uniprot: Protein sequences (210+ billion triples)</h3>
+			  <span class="indent"><a href="https://sparql.uniprot.org/">https://sparql.uniprot.org/</a></span>
+          </li>
+          <li>
+          	  <h3>Rhea: Chemical and transport reactions (5+ million triples)</h3>
+			  <span class="indent"><a href="https://sparql.rhea-db.org/">https://sparql.rhea-db.org/</a></span>
+          </li>
+      </ul>
+    </section>
+    
+    <section id="examples-bio-federation" class="slide" inlist="" rel="schema:hasPart" resource="#examples-bio-federation">
+      <h2 property="schema:name">Federation over multiple SPARQL endpoints</h2>
+      <p>Data across multiple datasources can be joined in a single query</p>
+      <ul>
+          <li>
+          	  <h3><a href="https://sparql.uniprot.org/.well-known/sparql-examples/51">Find all proteins linked to arachidonate (CHEBI:32395)</a></h3>
+			  <span class="indent">Joins Uniprot and Rhea</span>
+          </li>
+          <li>
+          	  <h3><a href="https://sparql.uniprot.org/.well-known/sparql-examples/40">Retrieve human enzymes that metabolize sphingolipids and are annotated in ChEMBL</a></h3>
+			  <span class="indent">Joins Uniprot, Rhea, and ChEMBL</span>
+          </li>
+      </ul>
+    </section>
+    
+    <section id="index-final" class="slide index" inlist="" rel="schema:hasPart" resource="#index-final">
+      <ul>
+        <li><a href="#index-web">World Wide Web</a></li>
+        <li><a href="#index-semweb">Semantics Web</a></li>
+		<li><a href="#index-rdf">RDF</a></li>
+        <li><a href="#index-sparql">SPARQL</a></li>
+        <li><a href="#index-examples">Examples</a></li>
       </ul>
     </section>
 	
     <section id="conclusion" class="slide" inlist="" rel="schema:hasPart" resource="#conclusion">
-      <h2 property="schema:name" class="big">TODO: Conclusion</h2>
+      <h2 property="schema:name" class="big">Conclusions</h2>
+      <ul>
+          <li>
+          	  <h3>Biological Knowledge Graphs use (Semantic) Web technologies</h3>
+			  <span class="indent">RDF, SPARQL, &mldr;</span>
+          </li>
+          <li>
+          	  <h3>Knowledge Graphs can be interlinked</h3>
+			  <span class="indent">Thanks to RDF's global identifiers</span>
+          </li>
+          <li>
+          	  <h3>Federated querying</h3>
+			  <span class="indent">Combining data across multiple Knowledge Graphs</span><br \>
+              <span class="indent">Complex queries can be slow</span>
+          </li>
+      </ul>
     </section>
 
     <footer>
