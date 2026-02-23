@@ -413,7 +413,7 @@ dbr:Alice foaf:name "Alice" .</pre>
     </section>
     
     <section id="example" class="slide" inlist="" rel="schema:hasPart" resource="#example" style="font-size: 0.9em">
-        <h2 property="schema:name">Find all artists born in York</h2>
+        <h2 property="schema:name"><a href="https://query.comunica.dev/#transientDatasources=%2F%2Ffragments.dbpedia.org%2F2016-04%2Fen&query=SELECT%20%3Fname%20%3FdeathDate%20WHERE%20%7B%0A%20%20%3Fperson%20a%20dbpedia-owl%3AArtist%3B%0A%20%20%20%20%20%20%20%20%20%20rdfs%3Alabel%20%3Fname%3B%0A%20%20%20%20%20%20%20%20%20%20dbpedia-owl%3AbirthPlace%20%5B%20rdfs%3Alabel%20%22York%22%40en%20%5D.%0A%20%20FILTER%20LANGMATCHES%28LANG%28%3Fname%29%2C%20%20%22EN%22%29%0A%20%20OPTIONAL%20%7B%20%3Fperson%20dbpprop%3AdateOfDeath%20%3FdeathDate.%20%7D%0A%7D">Find all artists born in York</a></h2>
         <ul>
             <li><pre>SELECT ?name ?deathDate WHERE {
   ?person a dbpedia-owl:Artist;
@@ -553,6 +553,20 @@ dbr:Alice foaf:name "Alice" .</pre>
 		<li><a href="#index-rdf">RDF</a></li>
         <li><a href="#index-sparql">SPARQL</a></li>
         <li class="current"><a href="#index-examples">Examples</a></li>
+      </ul>
+    </section>
+    
+    <section id="examples-normal" class="slide" inlist="" rel="schema:hasPart" resource="#examples-normal">
+      <h2 property="schema:name">Popular public SPARQL endpoints</h2>
+      <ul>
+          <li>
+          	  <h3>Wikidata: RDF representation of Wikipedia (15+ billion triples)</h3>
+			  <span class="indent"><a href="https://query.wikidata.org/">https://query.wikidata.org/</a></span>
+          </li>
+          <li>
+          	  <h3>DBpedia: RDF representation of Wikipedia (9+ million triples)</h3>
+			  <span class="indent"><a href="https://dbpedia.org/sparql">https://dbpedia.org/sparql</a></span>
+          </li>
       </ul>
     </section>
     
