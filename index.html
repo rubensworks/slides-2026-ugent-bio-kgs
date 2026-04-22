@@ -977,6 +977,10 @@ dbr:Alice foaf:name "Alice" .</pre>
       <p>Data across multiple datasources can be joined in a single query</p>
       <ul>
           <li>
+          	  <h3><a href="https://query.comunica.dev/#transientDatasources=%2F%2Ffragments.dbpedia.org%2F2016-04%2Fen;%2F%2Fdata.linkeddatafragments.org%2Fviaf;%2F%2Fdata.linkeddatafragments.org%2Fharvard&query=SELECT%20%3Fperson%20%3Fname%20%3Fbook%20%3Ftitle%20%7B%0A%20%20%3Fperson%20dbpedia-owl%3AbirthPlace%20%5B%20rdfs%3Alabel%20%22San%20Francisco%22%40en%20%5D.%0A%20%20%3FviafID%20schema%3AsameAs%20%3Fperson%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20schema%3Aname%20%3Fname.%0A%20%20%3Fbook%20dc%3Acontributor%20%5B%20foaf%3Aname%20%3Fname%20%5D%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20dc%3Atitle%20%3Ftitle.%0A%7D">Books by San Franciscans in Harvard Library</a></h3>
+			  <span class="indent">Joins DBpedia, VIAF, Harvard Library</span>
+          </li>
+          <li>
           	  <h3><a href="https://sparql.uniprot.org/.well-known/sparql-examples/51">Find all proteins linked to arachidonate (CHEBI:32395)</a></h3>
 			  <span class="indent">Joins Uniprot and Rhea</span>
           </li>
@@ -987,7 +991,7 @@ dbr:Alice foaf:name "Alice" .</pre>
       </ul>
     </section>
     
-    <section id="examples-bio-federation" class="slide" inlist="" rel="schema:hasPart" resource="#examples-bio-federation">
+    <section id="examples-linktraversal" class="slide" inlist="" rel="schema:hasPart" resource="#examples-linktraversal">
       <h2 property="schema:name">Example Link Traversal queries</h2>
       <p>Discover sources on the fly.</p>
       <ul>
@@ -1050,7 +1054,7 @@ dbr:Alice foaf:name "Alice" .</pre>
       </ul>
     </section>
 
-    <section id="personal-genomics" class="slide" inlist="" rel="schema:hasPart" resource="#personal-genomics">
+    <section id="personal-genomics" class="slide" inlist="" rel="schema:hasPart" resource="#personal-genomics" style="font-size: 0.9em">
       <h2 property="schema:name">Combining Personal Knowledge Graphs with Genomic Medicine</h2>
       <p>PhD topic Elias Crum (collaboration with VITO - Bart Buelens, Gokhan Ertaylan)</p>
       <ul>
