@@ -26,6 +26,34 @@
       table.query-results tbody tr {
           border: solid 1px gray;
       }
+      
+      pre.sparql {
+        background: #1e1e1e;
+        color: #d4d4d4;
+        padding: 1em;
+        border-radius: 6px;
+        overflow-x: auto;
+        font-family: Consolas, Monaco, monospace;
+        font-size: 18px;
+      }
+
+      /* Keywords */
+      .sparql-keyword { color: #569cd6; font-weight: bold; }
+
+      /* Variables */
+      .sparql-variable { color: #9cdcfe; }
+
+      /* Strings */
+      .sparql-string { color: #ce9178; }
+
+      /* Prefixed names */
+      .sparql-prefix { color: #4ec9b0; }
+
+      /* Functions */
+      .sparql-function { color: #c586c0; }
+
+      /* Comments */
+      .sparql-comment { color: #6a9955; font-style: italic; }
     </style>
   </head>
 
@@ -288,6 +316,22 @@
             </div>
         </div>
     </section>
+
+    <section id="agentic-ai" class="slide" inlist="" rel="schema:hasPart" resource="#agentic-ai">
+        <h2 class="big" property="schema:name">Agentic AI: multi-step agents</h2>
+        <h3>2025: LLMs act as orchestrators that use tools</h3>
+        <p>Combines the best of both worlds:</p>
+        <ul>
+            <li>Creativity and generative nature of LLMs</li>
+            <li>Precision of external tools (e.g. calc), Knowledge Graphs (neurosymbolic AI), &mldr;</li>
+        </ul>
+        <div>
+            <div class="indent" style="text-align: center; margin-top: -20px">
+                <img src="img/generative/claude.png" alt="Claude" width="200px" style="margin: 40px" />
+                <img src="img/generative/cursor.svg" alt="Cursor" width="200px" style="margin: 35px" />
+            </div>
+        </div>
+    </section>
     
     <section id="index-rdf" class="slide index" inlist="" rel="schema:hasPart" resource="#index-rdf">
       <ul>
@@ -343,7 +387,7 @@
     <section id="rdf-triples-figure" class="slide" inlist="" rel="schema:hasPart" resource="#rdf-triples-figure">
       <h2 property="schema:name">Multiple RDF triples form RDF datasets</h2>
 	  <center><img src="img/graph-example.svg" /></center>
-    </section>
+    </section><
     
     <section id="rdf-iris" class="slide" inlist="" rel="schema:hasPart" resource="#rdf-iris">
       <h2 property="schema:name">RDF Resources are identified by IRIs</h2>
@@ -420,7 +464,7 @@ dbr:Alice foaf:name "Alice" .</pre>
     <section id="example" class="slide" inlist="" rel="schema:hasPart" resource="#example" style="font-size: 0.9em">
         <h2 property="schema:name"><a href="https://query.comunica.dev/#transientDatasources=%2F%2Ffragments.dbpedia.org%2F2016-04%2Fen&query=SELECT%20%3Fname%20%3FdeathDate%20WHERE%20%7B%0A%20%20%3Fperson%20a%20dbpedia-owl%3AArtist%3B%0A%20%20%20%20%20%20%20%20%20%20rdfs%3Alabel%20%3Fname%3B%0A%20%20%20%20%20%20%20%20%20%20dbpedia-owl%3AbirthPlace%20%5B%20rdfs%3Alabel%20%22York%22%40en%20%5D.%0A%20%20FILTER%20LANGMATCHES%28LANG%28%3Fname%29%2C%20%20%22EN%22%29%0A%20%20OPTIONAL%20%7B%20%3Fperson%20dbpprop%3AdateOfDeath%20%3FdeathDate.%20%7D%0A%7D">Find all artists born in York</a></h2>
         <ul>
-            <li><pre>SELECT ?name ?deathDate WHERE {
+            <li><pre class="sparql">SELECT ?name ?deathDate WHERE {
   ?person a dbpedia-owl:Artist;
           rdfs:label ?name;
           dbpedia-owl:birthPlace [ rdfs:label "York"@en ].
@@ -1003,6 +1047,51 @@ dbr:Alice foaf:name "Alice" .</pre>
       </ul>
     </section>
 
+    <section id="ongoing-research" class="slide" inlist="" rel="schema:hasPart" resource="#ongoing-research">
+      <h2 property="schema:name">Ongoing research</h2>
+      <ul>
+          <li>
+          	  <h3>Developing the Comunica query engine</h3>
+			  <span class="indent">SPARQL 1.2, optimization, Comunica Association, &mldr;</span>
+          </li>
+          <li>
+          	  <h3>Optimizing query processing</h3>
+			  <span class="indent">Federated querying, link traversal, personalization, &mldr;</span>
+          </li>
+          <li>
+          	  <h3>Neurosymbolic AI</h3>
+			  <span class="indent">Connecting AI agents with Knowledge Graphs (Comunica MCP)</span>
+          </li>
+          <li>
+          	  <h3>Personal genomics</h3>
+			  <span class="indent">(Personal) Knowledge Graphs + genomic data</span>
+          </li>
+      </ul>
+    </section>
+
+    <section id="personal-genomics" class="slide" inlist="" rel="schema:hasPart" resource="#personal-genomics">
+      <h2 property="schema:name">Combining Personal Knowledge Graphs with Genomic Medicine</h2>
+      <p>PhD topic Elias Crum (collaboration with VITO - Bart Buelens, Gokhan Ertaylan)</p>
+      <ul>
+          <li>
+          	  <h3>Genomic Sequence Data Sharing for Clinical Practice</h3>
+			  <span class="indent">A review on why we do not see more genomic data usage</span><br \>
+              <span class="indent">Published in <a href="https://www.sciencedirect.com/science/article/pii/S0010482525016890">Computers in Biology and Medicine</a></span>
+          </li>
+          <li>
+          	  <h3>Towards storing Personal Genome Pods</h3>
+			  <span class="indent">Genomic data is stored in personal data pods</span>
+          </li>
+          <li>
+          	  <h3>Privacy-preserving querying</h3>
+			  <span class="indent">Analyses within one or multiple genomes: privacy-preserving</span><br \>
+              <span class="indent">Linking with other types of data (e.g. pharmacogenomics)</span>
+              <!-- Do I have a mutation that impacts disease X? -->
+              <!-- Do I have any patients with mutatiin Y? -->
+          </li>
+      </ul>
+    </section>
+
     <footer>
       <p class="license">
             &#169; <span property="schema:copyrightYear">2026</span> <a href="https://www.rubensworks.net" rel="schema:copyrightHolder"><span resource="https://www.rubensworks.net/#me">Ruben Taelman</span></a>
@@ -1012,5 +1101,38 @@ dbr:Alice foaf:name "Alice" .</pre>
     </footer>
 
     <script src="shower/shower.min.js"></script>
+    <script>
+    function highlightSPARQL(code) {
+      return code
+        // Escape HTML first
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+
+        // Comments
+        .replace(/(#.*)/g, '<span class="sparql-comment">$1</span>')
+
+        // Strings with optional language tag
+        .replace(/(".*?"(@[a-zA-Z-]+)?)/g,
+          '<span class="sparql-string">$1</span>')
+
+        // Variables
+        .replace(/(\?[a-zA-Z_][a-zA-Z0-9_]*)/g,
+          '<span class="sparql-variable">$1</span>')
+
+        // Prefixed names (e.g., dbpedia-owl:Artist)
+        .replace(/([a-zA-Z_-]+:[a-zA-Z_-]+)/g,
+          '<span class="sparql-prefix">$1</span>')
+
+        // Keywords
+        .replace(/\b(SELECT|WHERE|FILTER|OPTIONAL|LANGMATCHES|LANG|a)\b/g,
+          '<span class="sparql-keyword">$1</span>');
+    }
+
+    document.querySelectorAll("pre.sparql").forEach(block => {
+        console.log(block);
+      block.innerHTML = highlightSPARQL(block.textContent);
+    });
+    </script>
   </body>
 </html>
